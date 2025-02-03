@@ -1,0 +1,38 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Update to match dark matrix theme */
+    color: #e5e5e5;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Canvas for Matrix Effect */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure full-screen width */
+    height: 100%; /* Ensure full-screen height */
+    z-index: -1; /* Place behind content */
+}
+
+/* Hover Effect */
+.hover-effect:hover {
+    background: linear-gradient(90deg, rgba(0, 255, 204, 1), rgba(0, 0, 0, 1));
+    color: #ffffff;
+    transition: 0.3s ease;
+}
+
+/* Reveal Animation Class */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Profile Images */
+.profile-image {
+    width: 150px; /* Make images smaller for mobile responsiveness */
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0px 5px 20px rgba(0, 255, 204, 0.5);
+}
