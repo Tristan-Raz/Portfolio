@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   </noscript>
   <style>
-    /* Global & layout styles (header, sections, etc.) */
+    /* Global Styles */
     body {
       background-color: #000;
       color: #e5e5e5;
@@ -20,6 +20,7 @@
       padding: 0;
       scroll-behavior: smooth;
     }
+    /* Header Styles */
     header {
       background: rgba(10, 10, 10, 0.9);
       backdrop-filter: blur(10px);
@@ -47,6 +48,7 @@
     nav a:hover {
       color: #ff0;
     }
+    /* Section Styles */
     .section {
       min-height: 100vh;
       display: flex;
@@ -59,8 +61,10 @@
       transform: translateY(20px);
       animation: fadeIn 1s ease forwards;
     }
-    .section:nth-of-type(odd) {
-      background: #111;
+    /* Custom demo section override so it only occupies needed space */
+    .demo-section {
+      min-height: auto;
+      padding: 4rem 2rem;
     }
     .content-box {
       background: rgba(255, 255, 255, 0.1);
@@ -82,7 +86,7 @@
     .profile-image:hover {
       transform: scale(1.1);
     }
-    /* Matrix background canvas */
+    /* Matrix Digital Rain Background */
     #matrix {
       position: fixed;
       top: 0;
@@ -92,6 +96,7 @@
       z-index: -1;
       background-color: #000;
     }
+    /* Fade In Animation */
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -123,10 +128,75 @@
   </header>
 
   <main class="pt-20">
-    <!-- About, Projects, Research, and Skills Sections Here -->
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="content-box">
+        <h2 class="text-4xl font-bold mb-6">About Me</h2>
+        <p class="text-lg">
+          I am a cybersecurity professional passionate about securing systems and networks. My focus is on penetration testing, vulnerability management, and crafting robust digital defenses.
+        </p>
+        <div class="flex space-x-8 mt-4 justify-center">
+          <img src="/assets/congress1.jpg" alt="Speaking at Congress" class="profile-image w-40 h-40 object-cover">
+          <img src="/assets/congress2.jpg" alt="Meeting with Officials" class="profile-image w-40 h-40 object-cover">
+        </div>
+      </div>
+    </section>
 
-    <!-- Insert the Demo Section -->
-    <section id="demo" class="section">
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="content-box">
+        <h2 class="text-4xl font-bold text-cyan-400 mb-6">Projects</h2>
+        <ul class="text-lg space-y-4">
+          <li>Security Tool Development</li>
+          <li>Penetration Testing Reports</li>
+          <li>CTF Challenges and Write-Ups</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="section">
+      <div class="content-box">
+        <h2 class="text-4xl font-bold mb-6">Research</h2>
+        <p class="text-lg">
+          At Oak Ridge National Laboratory (ORNL), I contributed to enhancing the efficiency and security of energy systems in the Nuclear Energy and Fuel Cell Division.
+        </p>
+        <div class="flex flex-wrap justify-center space-x-8 mt-4">
+          <img src="/assets/research1.jpg" alt="Research Presentation" class="profile-image w-40 h-40 object-cover">
+          <img src="/assets/research2.jpg" alt="Lab Work" class="profile-image w-40 h-40 object-cover">
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <div class="content-box">
+        <h2 class="text-4xl font-bold text-cyan-400 mb-6">Technical Skills</h2>
+        <p class="text-lg mb-4">
+          Combining cybersecurity expertise with a strong computer science background, my skills include:
+        </p>
+        <ul class="text-lg space-y-2">
+          <li>Python Programming</li>
+          <li>C++ & C Programming</li>
+          <li>HTML & JavaScript</li>
+          <li>Cryptography & Encryption Techniques</li>
+          <li>Network & Application Penetration Testing</li>
+          <li>Vulnerability Assessment & Management</li>
+          <li>Secure Software Development & Code Auditing</li>
+          <li>Cloud Security & DevSecOps</li>
+        </ul>
+        <div class="flex flex-wrap justify-center mt-4 space-x-4">
+          <img src="/assets/python-logo.png" alt="Python" class="w-16 h-16 object-contain">
+          <img src="/assets/cpp-logo.png" alt="C++" class="w-16 h-16 object-contain">
+          <img src="/assets/html-logo.png" alt="HTML" class="w-16 h-16 object-contain">
+          <img src="/assets/javascript-logo.png" alt="JavaScript" class="w-16 h-16 object-contain">
+          <img src="/assets/crypto-logo.png" alt="Cryptography" class="w-16 h-16 object-contain">
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo Section (Caesar Cipher) -->
+    <section id="demo" class="section demo-section">
       <div class="content-box">
         <h2 class="text-4xl font-bold text-cyan-400 mb-6">Cybersecurity Demo: Caesar Cipher</h2>
         <p class="text-lg mb-4">
@@ -150,7 +220,18 @@
       </div>
     </section>
 
-    <!-- Contact Section Here -->
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="content-box">
+        <h2 class="text-4xl font-bold mb-6">Contact</h2>
+        <p class="text-lg mb-4">
+          Email: <a href="mailto:razotet@berea.edu" class="text-cyan-400 hover:text-cyan-200">razotet@berea.edu</a>
+        </p>
+        <p class="text-lg">
+          LinkedIn: <a href="https://www.linkedin.com/in/tristan-razote-02ab932b6" class="text-cyan-400 hover:text-cyan-200" target="_blank" rel="noopener noreferrer">Tristan Razote</a>
+        </p>
+      </div>
+    </section>
   </main>
 
   <!-- Matrix Digital Rain Animation Script -->
