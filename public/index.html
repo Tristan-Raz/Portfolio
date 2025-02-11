@@ -5,17 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Cybersecurity Portfolio showcasing expertise in penetration testing, vulnerability management, and securing critical infrastructure." />
   <title>Cybersecurity Portfolio</title>
-  <!-- Tailwind CSS -->
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  </noscript>
+
+  <!-- Using a CDN copy of Tailwind CSS. Replace with a local copy if preferred -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="CyberSec Portfolio" />
+  <meta property="og:description" content="Cybersecurity professional portfolio focusing on penetration testing, vulnerability management, and secure software development." />
+  <meta property="og:image" content="https://yourdomain.com/assets/preview-image.jpg" />
+  <meta property="og:url" content="https://yourdomain.com" />
+
   <style>
     /* Global Styles */
     body {
       background-color: #000;
       color: #e5e5e5;
-      font-family: 'Arial', sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       scroll-behavior: smooth;
@@ -57,18 +62,29 @@
       align-items: center;
       padding: 2rem;
       text-align: center;
-      opacity: 0;
-      transform: translateY(20px);
+    }
+    /* Animation Class */
+    .animate-fadeIn {
       animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     /* Custom demo section override so it only occupies needed space */
     .demo-section {
       min-height: auto;
       padding: 4rem 2rem;
     }
-    /* Updated Content Box: Solid background instead of transparent */
+    /* Content Box */
     .content-box {
-      background: #111; /* Solid dark background for readability */
+      background: #111;
       padding: 2rem;
       border-radius: 15px;
       max-width: 700px;
@@ -96,38 +112,60 @@
       z-index: -1;
       background-color: #000;
     }
-    /* Fade In Animation */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
   </style>
 </head>
 <body>
   <!-- Matrix Digital Rain Background -->
   <canvas id="matrix"></canvas>
 
-  <header>
+  <!-- Header with Navigation -->
+  <header class="p-4">
     <h1 class="text-2xl font-bold text-cyan-400">CyberSec Portfolio</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#demo">Demo</a></li>
-        <li><a href="#contact">Contact</a></li>
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:block">
+      <ul class="flex gap-6">
+        <li><a href="#hero" class="hover:text-yellow-400">Home</a></li>
+        <li><a href="#about" class="hover:text-yellow-400">About</a></li>
+        <li><a href="#projects" class="hover:text-yellow-400">Projects</a></li>
+        <li><a href="#research" class="hover:text-yellow-400">Research</a></li>
+        <li><a href="#skills" class="hover:text-yellow-400">Skills</a></li>
+        <li><a href="#demo" class="hover:text-yellow-400">Demo</a></li>
+        <li><a href="#contact" class="hover:text-yellow-400">Contact</a></li>
       </ul>
     </nav>
+    <!-- Mobile Hamburger Button -->
+    <button id="mobile-menu-toggle" class="md:hidden text-cyan-400 focus:outline-none" aria-label="Toggle navigation menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
   </header>
+  <!-- Mobile Navigation Menu -->
+  <nav id="mobile-menu" class="hidden md:hidden bg-gray-900 p-4">
+    <ul class="flex flex-col gap-4">
+      <li><a href="#hero" class="hover:text-yellow-400">Home</a></li>
+      <li><a href="#about" class="hover:text-yellow-400">About</a></li>
+      <li><a href="#projects" class="hover:text-yellow-400">Projects</a></li>
+      <li><a href="#research" class="hover:text-yellow-400">Research</a></li>
+      <li><a href="#skills" class="hover:text-yellow-400">Skills</a></li>
+      <li><a href="#demo" class="hover:text-yellow-400">Demo</a></li>
+      <li><a href="#contact" class="hover:text-yellow-400">Contact</a></li>
+    </ul>
+  </nav>
 
   <main class="pt-20">
+    <!-- Hero Section -->
+    <section id="hero" class="section bg-gray-800">
+      <div class="content-box">
+        <h1 class="text-5xl font-bold text-cyan-400 mb-4">Hi, I’m [Your Name]</h1>
+        <p class="text-xl mb-6">Cybersecurity professional focused on penetration testing and digital defense.</p>
+        <a href="#contact" class="px-6 py-3 bg-cyan-500 rounded text-white hover:bg-cyan-600">
+          Get in Touch
+        </a>
+      </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="section">
       <div class="content-box">
@@ -136,8 +174,9 @@
           I am a cybersecurity professional passionate about securing systems and networks. My focus is on penetration testing, vulnerability management, and crafting robust digital defenses.
         </p>
         <div class="flex space-x-8 mt-4 justify-center">
-          <img src="/assets/congress1.jpg" alt="Speaking at Congress" class="profile-image w-40 h-40 object-cover">
-          <img src="/assets/congress2.jpg" alt="Meeting with Officials" class="profile-image w-40 h-40 object-cover">
+          <!-- Replace with actual image paths -->
+          <img src="/assets/congress1.jpg" alt="Speaking at Congress" loading="lazy" class="profile-image w-40 h-40 object-cover">
+          <img src="/assets/congress2.jpg" alt="Meeting with Officials" loading="lazy" class="profile-image w-40 h-40 object-cover">
         </div>
       </div>
     </section>
@@ -162,8 +201,9 @@
           At Oak Ridge National Laboratory (ORNL), I contributed to enhancing the efficiency and security of energy systems in the Nuclear Energy and Fuel Cell Division.
         </p>
         <div class="flex flex-wrap justify-center space-x-8 mt-4">
-          <img src="/assets/research1.jpg" alt="Research Presentation" class="profile-image w-40 h-40 object-cover">
-          <img src="/assets/research2.jpg" alt="Lab Work" class="profile-image w-40 h-40 object-cover">
+          <!-- Replace with actual image paths -->
+          <img src="/assets/research1.jpg" alt="Research Presentation" loading="lazy" class="profile-image w-40 h-40 object-cover">
+          <img src="/assets/research2.jpg" alt="Lab Work" loading="lazy" class="profile-image w-40 h-40 object-cover">
         </div>
       </div>
     </section>
@@ -177,20 +217,21 @@
         </p>
         <ul class="text-lg space-y-2">
           <li>Python Programming</li>
-          <li>C++ & C Programming</li>
-          <li>HTML & JavaScript</li>
-          <li>Cryptography & Encryption Techniques</li>
-          <li>Network & Application Penetration Testing</li>
-          <li>Vulnerability Assessment & Management</li>
-          <li>Secure Software Development & Code Auditing</li>
-          <li>Cloud Security & DevSecOps</li>
+          <li>C++ &amp; C Programming</li>
+          <li>HTML &amp; JavaScript</li>
+          <li>Cryptography &amp; Encryption Techniques</li>
+          <li>Network &amp; Application Penetration Testing</li>
+          <li>Vulnerability Assessment &amp; Management</li>
+          <li>Secure Software Development &amp; Code Auditing</li>
+          <li>Cloud Security &amp; DevSecOps</li>
         </ul>
         <div class="flex flex-wrap justify-center mt-4 space-x-4">
-          <img src="/assets/python-logo.png" alt="Python" class="w-16 h-16 object-contain">
-          <img src="/assets/cpp-logo.png" alt="C++" class="w-16 h-16 object-contain">
-          <img src="/assets/html-logo.png" alt="HTML" class="w-16 h-16 object-contain">
-          <img src="/assets/javascript-logo.png" alt="JavaScript" class="w-16 h-16 object-contain">
-          <img src="/assets/crypto-logo.png" alt="Cryptography" class="w-16 h-16 object-contain">
+          <!-- Replace with actual image paths -->
+          <img src="/assets/python-logo.png" alt="Python" loading="lazy" class="w-16 h-16 object-contain">
+          <img src="/assets/cpp-logo.png" alt="C++" loading="lazy" class="w-16 h-16 object-contain">
+          <img src="/assets/html-logo.png" alt="HTML" loading="lazy" class="w-16 h-16 object-contain">
+          <img src="/assets/javascript-logo.png" alt="JavaScript" loading="lazy" class="w-16 h-16 object-contain">
+          <img src="/assets/crypto-logo.png" alt="Cryptography" loading="lazy" class="w-16 h-16 object-contain">
         </div>
       </div>
     </section>
@@ -203,14 +244,14 @@
           Try out this fun encryption demo using a simple Caesar cipher. Enter a message, select a shift value, and see it encrypted or decrypted.
         </p>
         <div class="flex flex-col space-y-4">
-          <textarea id="inputText" rows="3" placeholder="Enter your text here..." class="p-2 rounded bg-gray-800 text-white"></textarea>
+          <textarea id="inputText" aria-label="Enter text for Caesar cipher" rows="3" placeholder="Enter your text here..." class="p-2 rounded bg-gray-800 text-white"></textarea>
           <div class="flex items-center space-x-4">
             <label for="shiftValue" class="text-lg">Shift:</label>
-            <input type="number" id="shiftValue" value="3" class="p-2 rounded bg-gray-800 text-white" />
+            <input type="number" id="shiftValue" value="3" class="p-2 rounded bg-gray-800 text-white" aria-label="Shift value">
           </div>
           <div class="flex items-center space-x-4">
-            <button onclick="encryptText()" class="px-4 py-2 bg-cyan-500 rounded hover:bg-cyan-600">Encrypt</button>
-            <button onclick="decryptText()" class="px-4 py-2 bg-cyan-500 rounded hover:bg-cyan-600">Decrypt</button>
+            <button id="encrypt-btn" class="px-4 py-2 bg-cyan-500 rounded hover:bg-cyan-600">Encrypt</button>
+            <button id="decrypt-btn" class="px-4 py-2 bg-cyan-500 rounded hover:bg-cyan-600">Decrypt</button>
           </div>
           <div>
             <h3 class="text-2xl font-bold mt-4">Output:</h3>
@@ -234,40 +275,65 @@
     </section>
   </main>
 
-  <!-- Matrix Digital Rain Animation Script -->
   <script>
-    const canvas = document.getElementById("matrix");
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
-    const charArray = characters.split("");
-    const fontSize = 16;
-    const columns = Math.floor(canvas.width / fontSize);
-    const drops = Array(columns).fill(1);
-    function drawMatrix() {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#0F0";
-      ctx.font = fontSize + "px monospace";
-      for (let i = 0; i < drops.length; i++) {
-        const text = charArray[Math.floor(Math.random() * charArray.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
-      }
-    }
-    setInterval(drawMatrix, 33);
-    window.addEventListener("resize", () => {
+    // Matrix Digital Rain Animation: Only run on larger screens
+    if (window.innerWidth > 768) {
+      const canvas = document.getElementById("matrix");
+      const ctx = canvas.getContext("2d");
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-    });
-  </script>
+      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+      const charArray = characters.split("");
+      const fontSize = 16;
+      const columns = Math.floor(canvas.width / fontSize);
+      const drops = Array(columns).fill(1);
 
-  <!-- Caesar Cipher Demo Script -->
-  <script>
+      function drawMatrix() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#0F0";
+        ctx.font = fontSize + "px monospace";
+        for (let i = 0; i < drops.length; i++) {
+          const text = charArray[Math.floor(Math.random() * charArray.length)];
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      }
+      setInterval(drawMatrix, 33);
+
+      window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    } else {
+      // Hide canvas on smaller screens for performance
+      document.getElementById("matrix").style.display = "none";
+    }
+
+    // Mobile Menu Toggle
+    document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Intersection Observer for Section Animations
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll('.section');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fadeIn');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      sections.forEach(section => observer.observe(section));
+    });
+
+    // Caesar Cipher Functions without redundant local variables
     function caesarCipher(str, shift) {
       return str.split('').map(char => {
         const code = char.charCodeAt(0);
@@ -283,15 +349,17 @@
     function encryptText() {
       const input = document.getElementById('inputText').value;
       const shift = parseInt(document.getElementById('shiftValue').value, 10);
-      const encrypted = caesarCipher(input, shift);
-      document.getElementById('outputText').innerText = encrypted;
+      document.getElementById('outputText').innerText = caesarCipher(input, shift);
     }
     function decryptText() {
       const input = document.getElementById('inputText').value;
       const shift = parseInt(document.getElementById('shiftValue').value, 10);
-      const decrypted = caesarCipher(input, -shift);
-      document.getElementById('outputText').innerText = decrypted;
+      document.getElementById('outputText').innerText = caesarCipher(input, -shift);
     }
+
+    // Event Listeners for Demo Buttons
+    document.getElementById('encrypt-btn').addEventListener('click', encryptText);
+    document.getElementById('decrypt-btn').addEventListener('click', decryptText);
   </script>
 </body>
 </html>
